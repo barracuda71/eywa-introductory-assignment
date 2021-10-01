@@ -1,10 +1,13 @@
 import styled from "@emotion/styled";
-import React from 'react';
+import React, {useCallback} from 'react';
+import {useDataStore} from "../index";
+import {Token} from "../domain/models";
+import {observer} from "mobx-react-lite";
 
 
 const Root = styled.div`
     background-color: #191332;
-    height: 320px;
+    height: 200px;
     width: 576px;
     border-radius: 8px;
     padding: 20px 24px 24px 24px;
@@ -36,7 +39,12 @@ const Row = styled.div`
     padding-bottom: 24px;
 `;
 
-export const Faucet = () => {
+
+export const Faucet = observer(() => {
+    const store = useDataStore()
+    const onClickHandler = useCallback(() => {
+        store.setBalance(Token.USDT, Math.random())
+    }, [])
     return (
         <Root>
             <Title>
@@ -45,10 +53,10 @@ export const Faucet = () => {
             <Body>
                 <Label>Ethereum Rinkeby</Label>
                 <Row>
-                    Row
                 </Row>
+                <span>Balance: {store.balances[Token.USDT]}</span>
+                <button onClick={onClickHandler}> Faucet me </button>
             </Body>
         </Root>
     );
-}
-
+})
