@@ -16,8 +16,13 @@ export const Balances = observer(() => {
     const {balances} = store;
     const refreshBalance = useRefreshBalance();
     useEffect(() => {
-        refreshBalance(Token.USDT);
-        refreshBalance(Token.EYWA);
+        const interval = setInterval(() => {
+            refreshBalance(Token.USDT);
+            refreshBalance(Token.EYWA);
+        }, 5000);
+        return () => {
+            clearInterval(interval);
+        };
     }, []);
     if(!store.publicKey){
         return null;

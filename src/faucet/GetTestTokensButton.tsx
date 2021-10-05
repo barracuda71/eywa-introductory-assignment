@@ -1,10 +1,9 @@
-import React, {useCallback, useEffect} from 'react';
+import React, {useCallback} from 'react';
 import styled from "@emotion/styled";
 import {useDataStore} from "../index";
-import {Token} from "../domain/models";
-import {balanceAbi} from "../abis/balance-abi";
 import {mintAbi} from "../abis/mint-abi";
 import {useRefreshBalance} from "../domain/hooks/useRefreshBalance";
+import {observer} from "mobx-react-lite";
 
 const StyledButton = styled.div`
     height: 56px;
@@ -22,7 +21,7 @@ const StyledButton = styled.div`
     },
 `
 
-export const GetTestTokensButton = () => {
+export const GetTestTokensButton = observer(() => {
     const store = useDataStore();
     const {tokenAddresses, publicKey, currentToken} = store;
     const refreshBalance = useRefreshBalance();
@@ -31,8 +30,7 @@ export const GetTestTokensButton = () => {
         const tokenContract = new window.web3.eth.Contract(mintAbi, contractAddress);
         tokenContract.methods.mint(publicKey, 1)
             .send({ from: publicKey })
-            .then((response: any) => {
-            console.log(response);
+            .then(() => {
             refreshBalance(currentToken);
         });
     }, [currentToken, publicKey]);
@@ -44,4 +42,4 @@ export const GetTestTokensButton = () => {
             GET TEST TOKENS
         </StyledButton>
     )
-}
+});
