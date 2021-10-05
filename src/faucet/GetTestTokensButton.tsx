@@ -35,7 +35,7 @@ export const GetTestTokensButton = () => {
             console.log(response);
             refreshBalance(currentToken);
         });
-    }, []);
+    }, [currentToken, publicKey]);
     if(!store.publicKey){
         return null;
     }
