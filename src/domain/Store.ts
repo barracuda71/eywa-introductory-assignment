@@ -14,6 +14,7 @@ export class Store  implements State, Actions {
   }
 
   balances!: Record<Token, number>;
+  tokenAddresses!: Record<Token, string>;
   currentToken!: Token;
   publicKey!: string;
   tokens!: Token[];

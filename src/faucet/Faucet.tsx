@@ -3,6 +3,10 @@ import React, {useCallback} from 'react';
 import {useDataStore} from "../index";
 import {Token} from "../domain/models";
 import {observer} from "mobx-react-lite";
+import {TokenSelect} from "./TokenSelect";
+import {WalletConnector} from "./WalletConnector";
+import {Balances} from "./Balances";
+import {GetTestTokensButton} from "./GetTestTokensButton";
 
 
 const Root = styled.div`
@@ -30,6 +34,15 @@ const Body = styled.div`
 `;
 const Label = styled.div`
     color: #959EBD;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+
 `;
 const Row = styled.div`
     display: flex;
@@ -41,10 +54,7 @@ const Row = styled.div`
 
 
 export const Faucet = observer(() => {
-    const store = useDataStore()
-    const onClickHandler = useCallback(() => {
-        store.setBalance(Token.USDT, Math.random())
-    }, [])
+    const store = useDataStore();
     return (
         <Root>
             <Title>
@@ -53,9 +63,18 @@ export const Faucet = observer(() => {
             <Body>
                 <Label>Ethereum Rinkeby</Label>
                 <Row>
+                    <TokenSelect/>
+                    <WalletConnector/>
                 </Row>
-                <span>Balance: {store.balances[Token.USDT]}</span>
-                <button onClick={onClickHandler}> Faucet me </button>
+                {
+                    store.publicKey && (
+                        <>
+                            <Balances/>
+                            <GetTestTokensButton/>
+                        </>
+                    )
+                }
+
             </Body>
         </Root>
     );
