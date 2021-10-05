@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/eywa-ghp/static/css/main.f35ed8f1.chunk.css",
+    "main.js": "/eywa-ghp/static/js/main.00a6d52b.chunk.js",
+    "main.js.map": "/eywa-ghp/static/js/main.00a6d52b.chunk.js.map",
+    "runtime-main.js": "/eywa-ghp/static/js/runtime-main.703c8543.js",
+    "runtime-main.js.map": "/eywa-ghp/static/js/runtime-main.703c8543.js.map",
+    "static/js/2.fc0c9567.chunk.js": "/eywa-ghp/static/js/2.fc0c9567.chunk.js",
+    "static/js/2.fc0c9567.chunk.js.map": "/eywa-ghp/static/js/2.fc0c9567.chunk.js.map",
+    "static/js/3.4f1ae831.chunk.js": "/eywa-ghp/static/js/3.4f1ae831.chunk.js",
+    "static/js/3.4f1ae831.chunk.js.map": "/eywa-ghp/static/js/3.4f1ae831.chunk.js.map",
+    "index.html": "/eywa-ghp/index.html",
+    "static/css/main.f35ed8f1.chunk.css.map": "/eywa-ghp/static/css/main.f35ed8f1.chunk.css.map",
+    "static/js/2.fc0c9567.chunk.js.LICENSE.txt": "/eywa-ghp/static/js/2.fc0c9567.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/eywa-ghp/static/media/bg.b330b569.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.703c8543.js",
+    "static/js/2.fc0c9567.chunk.js",
+    "static/css/main.f35ed8f1.chunk.css",
+    "static/js/main.00a6d52b.chunk.js"
+  ]
+}
